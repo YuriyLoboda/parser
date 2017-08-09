@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
     public void saveUserFromFile(MultipartFile file) {
 
         try {
+
             CSVParser parser = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(file.getInputStream()));
             for(CSVRecord rec : parser){
                User user = new User();
@@ -37,6 +38,7 @@ public class UserServiceImpl implements UserService {
                user.setFirm(rec.get("firm"));
                userRepository.save(user);
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
