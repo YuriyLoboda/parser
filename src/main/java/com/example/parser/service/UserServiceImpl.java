@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,11 +26,10 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void saveUserFromFile() {
-        File file = new File("C://file/user.csv");
+    public void saveUserFromFile(MultipartFile file) {
 
         try {
-            CSVParser parser = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(new FileInputStream(file)));
+            CSVParser parser = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(file.getInputStream()));
             for(CSVRecord rec : parser){
                User user = new User();
                user.setName(rec.get("name"));
