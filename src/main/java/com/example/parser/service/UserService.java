@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface UserService {
    void saveUserFromFile(MultipartFile file);
+   User createUser(User user);
 }

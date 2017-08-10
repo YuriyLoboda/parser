@@ -21,6 +21,7 @@ public class User {
     @JsonProperty("number")
     private String id;
     private String name;
+    private String surname;
     private int age;
     private String firm;
     public User(){};
