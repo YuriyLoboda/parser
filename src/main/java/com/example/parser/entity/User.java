@@ -1,5 +1,6 @@
 package com.example.parser.entity;
 
+import com.example.parser.entity.additions.Characteristic;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -18,11 +19,11 @@ public class User {
 
     @Id
     @NonNull
-    @JsonProperty("number")
     private String id;
     private String name;
     private String surname;
     private int age;
-    private String firm;
+    private String firm = "Netcracker";
+    private Characteristic characteristic;
     public User(){};
 }

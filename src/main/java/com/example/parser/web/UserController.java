@@ -1,7 +1,8 @@
 package com.example.parser.web;
 
-import com.example.parser.entity.InternalUser;
+import com.example.parser.entity.ExternalUser;
 import com.example.parser.entity.User;
+import com.example.parser.entity.additions.Characteristic;
 import com.example.parser.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,11 +26,15 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public void registrationNewUser(@RequestBody InternalUser internalUser) {
+    public User registrationNewUser(@RequestBody ExternalUser externalUser) {
         user = new User();
-        user.setName(internalUser.getFirst_name());
-        user.setSurname(internalUser.getLast_name());
-        user.setAge(internalUser.getAge());
-        userService.createUser(user);
+        user.setName(externalUser.getFirst_name());
+        user.setSurname(externalUser.getLast_name());
+        user.setAge(externalUser.getAge());
+        Characteristic c = new Characteristic();
+        c.getList().add("wife:Elena");
+        c.getList().add("child:Mick");
+        user.setCharacteristic(c);
+        return userService.createUser(user);
     }
 }
