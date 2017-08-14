@@ -28,13 +28,8 @@ public class UserController {
     @PostMapping("/registration")
     public User registrationNewUser(@RequestBody ExternalUser externalUser) {
         user = new User();
-        user.setName(externalUser.getFirst_name());
-        user.setSurname(externalUser.getLast_name());
-        user.setAge(externalUser.getAge());
-        Characteristic c = new Characteristic();
-        c.getList().add("wife:Elena");
-        c.getList().add("child:Mick");
-        user.setCharacteristic(c);
+        user.setName(externalUser.getName());
+        user.setCharacteristic(externalUser.getCharacteristics());
         return userService.createUser(user);
     }
 }

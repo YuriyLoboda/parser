@@ -1,10 +1,13 @@
 package com.example.parser.entity;
 
+import com.example.parser.entity.additions.Characteristic;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * Created by yulo0717 on 8/10/2017.
@@ -14,10 +17,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ExternalUser {
-    @JsonProperty("name")
-    private String first_name;
-    @JsonProperty("surname")
-    private  String last_name;
-    private int age;
+    private String name;
+    private List<Characteristic> characteristics;
     public ExternalUser(){};
 }

@@ -6,6 +6,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 /**
  * Created by yulo0717 on 8/7/2017.
  */
@@ -24,6 +26,6 @@ public class User {
     private String surname;
     private int age;
     private String firm = "Netcracker";
-    private Characteristic characteristic;
+    private List<Characteristic> characteristic;
     public User(){};
 }
