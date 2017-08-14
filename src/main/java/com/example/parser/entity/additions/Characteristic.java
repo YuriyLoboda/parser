@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Characteristic {
-    List<String> list = new ArrayList<>();
-
+    String name;
+    List<String> values;
     public Characteristic (){};
 }
